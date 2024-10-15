@@ -1,4 +1,5 @@
 import { BarChart2, Box, ShoppingCart, Users, RefreshCcw, Settings, HelpCircle, LogOut } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 
 const Sidebar = () => {
@@ -12,18 +13,20 @@ const Sidebar = () => {
     </div>
     <nav className="flex-grow">
       <ul className="space-y-4">
-        <li><a href="#" className="flex items-center"><BarChart2 className="mr-3 h-5 w-5" /> Dashboard</a></li>
-        <li><a href="#" className="flex items-center"><Box className="mr-3 h-5 w-5" /> Products</a></li>
-        <li><a href="#" className="flex items-center"><ShoppingCart className="mr-3 h-5 w-5" /> Orders</a></li>
-        <li><a href="#" className="flex items-center"><Users className="mr-3 h-5 w-5" /> Customers</a></li>
-        <li><a href="#" className="flex items-center"><RefreshCcw className="mr-3 h-5 w-5" /> Transactions</a></li>
+        <li><Link to="/dashboard" className="flex items-center"><BarChart2 className="mr-3 h-5 w-5" /> Dashboard</Link></li>
+        <li><a href="/dashboard/products" className="flex items-center"><Box className="mr-3 h-5 w-5" /> Products</a></li>
+        <li><Link to="/dashboard/Orders" className="flex items-center"><ShoppingCart className="mr-3 h-5 w-5" /> Orders</Link></li>
+        <li><Link to="/dashboard/customers" className="flex items-center"><Users className="mr-3 h-5 w-5" /> Customers</Link></li>
+        <li><Link to="/transactions"  className="flex items-center"><RefreshCcw className="mr-3 h-5 w-5" /> Transactions</Link></li>
       </ul>
     </nav>
     <div className="mt-auto pt-6">
       <ul className="space-y-4">
-        <li><a href="#" className="flex items-center"><Settings className="mr-3 h-5 w-5" /> Settings</a></li>
-        <li><a href="#" className="flex items-center"><HelpCircle className="mr-3 h-5 w-5" /> Help & Support</a></li>
-        <li><a href="#" className="flex items-center"><LogOut className="mr-3 h-5 w-5" /> Logout</a></li>
+        <li><Link to="dashboard/settings" className="flex items-center"><Settings className="mr-3 h-5 w-5" /> Settings</Link></li>
+
+        {/* might throw an error */}
+        <li><Link href="#" className="flex items-center"><HelpCircle className="mr-3 h-5 w-5" /> Help & Support</Link></li>
+        <li><Link to="/" className="flex items-center"><LogOut className="mr-3 h-5 w-5" /> Logout</Link></li>
       </ul>
     </div>
   </div>

@@ -8,6 +8,10 @@ import PostingForm from './pages/Posting-Form/PostingForm'
 import DashboardLayout from './Layouts/DashboardLayout'
 import Overview from './pages/dashboard/Overview'
 import Settings from './pages/dashboard/Settings'
+import Customers from './pages/dashboard/Customers'
+import Orders from './pages/dashboard/Orders'
+import Products from './pages/dashboard/Products'
+import Transactions from './pages/dashboard/Transactions'
 
 function App() {
   const router = createBrowserRouter([
@@ -44,46 +48,34 @@ function App() {
         {
           // path: "overview",
           index: true,
-          element: <Overview />
-
+          element: <Overview/>
         },
 
         {
-          path: "settings",
-          element: <Settings />,
+          path: "products",
+          element: <Products/>,
         },
+
+        {
+          path: "orders",
+          element: <Orders/>,
+        },
+
+        {
+          path: "customers",
+          element: <Customers/>,
+        },
+       
+        {
+          path: "transactions",
+          element: <Transactions/>,
+        },
+
         {
           path: "settings",
-          element: <Settings />,
+          element: <Settings/>,
         },
-        {
-          path: "settings",
-          element: <Settings />,
-        },
-        {
-          path: "settings",
-          element: <Settings />,
-        },
-        {
-          path: "settings",
-          element: <Settings />,
-        },
-        {
-          path: "settings",
-          element: <Settings />,
-        },
-        {
-          path: "settings",
-          element: <Settings />,
-        },
-        {
-          path: "settings",
-          element: <Settings />,
-        },
-        {
-          path: "settings",
-          element: <Settings />,
-        },
+        
       ],
     },
 
