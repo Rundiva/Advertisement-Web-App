@@ -10,57 +10,89 @@ import Overview from './pages/dashboard/Overview'
 import Settings from './pages/dashboard/Settings'
 
 function App() {
- const router = createBrowserRouter([
+  const router = createBrowserRouter([
 
-  //path: "index",
-  //element: "<GoBack/>"
+    //path: "index",
+    //element: "<GoBack/>"
 
-  {
-    path: "/",
-    element: <Hero/>,
-  },
-
-  {
-    path: "/add-new",
-    element: <PostingForm/>,
-
-  },
-
-  {
-    path: "/signup",
-    element: <Signup/>,
-  },
-
-  {
-    path: "/login",
-    element: <Login/>,
-
-  },
-
-  {
-    path: "/dashboard",
-    element:<DashboardLayout/>,
-    children: [
     {
-      // path: "overview",
-      index: true,
-      element: <Overview/>
-  
+      path: "/",
+      element: <Hero />,
     },
-  
-  { path: "settings",
-    element: <Settings/>
-  
-  },
-  ],
-  },
-   
 
-  
+    {
+      path: "/add-new",
+      element: <PostingForm />,
 
- ])
+    },
 
-  return ( <RouterProvider router={router}/>
+    {
+      path: "/signup",
+      element: <Signup />,
+    },
+
+    {
+      path: "/login",
+      element: <Login />,
+
+    },
+
+    {
+      path: "/dashboard",
+      element: <DashboardLayout />,
+      children: [
+        {
+          // path: "overview",
+          index: true,
+          element: <Overview />
+
+        },
+
+        {
+          path: "settings",
+          element: <Settings />,
+        },
+        {
+          path: "settings",
+          element: <Settings />,
+        },
+        {
+          path: "settings",
+          element: <Settings />,
+        },
+        {
+          path: "settings",
+          element: <Settings />,
+        },
+        {
+          path: "settings",
+          element: <Settings />,
+        },
+        {
+          path: "settings",
+          element: <Settings />,
+        },
+        {
+          path: "settings",
+          element: <Settings />,
+        },
+        {
+          path: "settings",
+          element: <Settings />,
+        },
+        {
+          path: "settings",
+          element: <Settings />,
+        },
+      ],
+    },
+
+
+
+
+  ])
+
+  return (<RouterProvider router={router} />
   )
 }
 
