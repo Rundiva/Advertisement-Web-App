@@ -4,10 +4,12 @@ import Sidebar from '../component/Sidebar'
 
 const DashboardLayout = () => {
   return (
-    <div>
-    <Sidebar/>
-    <Outlet/>    </div>
-   
+    <>
+    <div className="grid grid-cols-4">
+      <div className="col-span-1"> <Sidebar/></div>
+      <div className="col-span-3"><Outlet/></div>
+    </div>
+    </>
   )
 }
 

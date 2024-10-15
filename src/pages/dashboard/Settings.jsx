@@ -1,8 +1,9 @@
-import React from 'react'
 
 const Settings = () => {
   return (
-    <div>Settings</div>
+    <div>
+      <h1>this is the settings page</h1>
+    </div>
   )
 }
 
