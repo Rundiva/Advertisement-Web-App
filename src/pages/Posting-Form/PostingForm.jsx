@@ -1,108 +1,61 @@
-import { useEffect, useState } from "react"
-import { Await } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
 
 
 const PostingForm = () => {
-    // fetching data
-    const [titles, setTitles] = useState([]);
-    const [description, setDescription] = useState('')
+    const navigate = useNavigate();
 
-    const getTitles = async () => {
-        const response = await axios.get(`BASE_URL/titles`)
-        setTitles(response.data)
-    }
+    const saveTodo = async (event) => {
+        event.preventDefault();
+        //Colllect form input
+        const formData = new FormData(event.target);
 
-    useEffect(()=>{
-        getTitles();
-
-    }, []);
-
-    // Handle for submission
-    const handleSubmit = async (event) => {
-        event.preventDefault ();
-        try {
-            // collect the form data
-
-            const formData = new FormData(event.target);
-
-            // post data to Api
-            const response = await axios.post(`${BASE_URL}`/adverts,{
-                title: formData.get ('title'),
-                description: formData.get ('description')
-                // image: fornData.get ('image')
-                // price: formData.get ('price') 
-                // category: formData.get ('category')
-
-
-            });
-            setMessage ('Advert Added Succefully!');
+        //Post data to todo api
+        await axios.post(`${import.meta.env.VITE_BASE_URL}/todos`,formData);
         
-        } catch (error) {
-            console.log (error)
-        }
+        //Goto the homepage
+        navigate('/dashboard');
     }
 
-  return (
-    // <div className=" flex  w-[620px]">
-    <div className=" flex flex-col justify-center items-center "> 
-        <h1 className="text-center text-2xl font-bold">Fill the Form Below to Post an Advert</h1>
-        <form onSubmit={handleSubmit} className="bg-white flex flex-col gap-6 p-6 rounded-lg shadow-lg w-[620px]">
-           <div className="flex flex-col">
-           <label className="text-lg font-semibold mb-2">Book Title</label>
-            <input
-             name="title"
-             type="text"
-             placeholder="Enter Title of the Advert" 
-             required
-             className=" p-3 border border-blue-500 rounded-lg focus:outline-none focus:ring-2 "/>
-
-             <div>
-             <label className="text-lg font-semibold mb-2">Description</label>
-                <textarea
-                  name="summary"
-                  placeholder="Provide a short description"
-                  rows="3"
-                  required
-                  className="p-3 border border-blue-500 rounded-lg w-full focus:outline-none focus:ring-2 "
-                ></textarea>
-             </div>
-             <div className="flex flex-col">
-                <label className="text-lg font-semibold mb-2"> Image Upload</label>
-                <input 
-                name="Imageupload"
-                type="text"
-                required
-                 className="p-2 border border-blue-500 rounded-lg focus:outline-none focus:ring-2" />
-
-             </div>
-             <div>
-             <label className="text-lg font-semibold mb-2"> Price</label>
-             <input 
-                   name="Price"
-                   type="number" 
-                   required
-                   className="p-2 border border-blue-500 rounded-lg w-full focus:outline-none focus:ring-2" />
-                   </div>
-                   <div>
-                   <label className="text-lg font-semibold mb-2">Category</label>
-
-                   <select name="Category" placeholder = "Select Category" className="p-2 border rounded-lg border-blue-500 w-full focus:outline-none focus:ring-2" ></select>
-                   </div>
-
-                   <button
-                  type="submit"
-                  className="mt-4 w-[150px] py-3 bg-blue-500 hover:bg-blue-700 text-white text-lg font-semibold rounded-full shadow-md transition duration-300 ease-in-out "
-                >
-                  Upload Book
-                </button>
-    
-
-           </div>
-           
-        </form>
-
+    return (
+        <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+      <h1 className="text-2xl font-bold mb-6 text-gray-800">Add A New Todo</h1>
+      <form onSubmit={saveTodo} className="space-y-4">
+        <div>
+          <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">
+            Todo Title
+          </label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder="Enter your Todo"
+            required
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        <div>
+          <label htmlFor="icon" className="block text-sm font-medium text-gray-700 mb-1">
+            Todo Icon
+          </label>
+          <input
+            type="file"
+            id="icon"
+            name="icon"
+            required
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+          />
+        </div>
+        <button
+          type="submit"
+          className="w-full px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
+        >
+          Submit
+        </button>
+      </form>
     </div>
-  )
+    );
 }
 
-export default PostingForm
+export default PostingForm;

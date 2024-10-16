@@ -10,7 +10,7 @@ const Layout = () => {
       {/* Main grid container */}
       <div className="grid grid-cols-12">
         {/* Sidebar */}
-        <div className="col-span-2 bg-white shadow-lg min-h-screen">
+        <div className="col-span-2 bg-white shadow-lg min-h-screen ">
           <Sidebar/>
         </div>
 
