@@ -8,7 +8,7 @@ const Header = () => {
   // Mock admin data - replace with your actual admin data
   const admin = {
     name: "Sarah Johnson",
-    role: "Senior Administrator",
+    role: "Administrator",
     email: "sarah.j@company.com",
     avatarUrl: "/api/placeholder/40/40",  // Using placeholder image
     notifications: 3,
@@ -18,7 +18,6 @@ const Header = () => {
   return (
     <header className="bg-white border-b border-gray-200 px-4 py-2 w-[100%]">
       <div className="max-w-6xl mx-auto flex items-center justify-between">
-      {/* <div className="max-w-7xl mx-auto flex items-center justify-between"> */}
         {/* Left section - Search */}
         <div className="flex-1 max-w-lg">
           <div className="relative">
@@ -79,29 +78,8 @@ const Header = () => {
                 <p className="text-sm font-semibold text-gray-700">{admin.name}</p>
                 <p className="text-xs text-gray-500">{admin.role}</p>
               </div>
-              <ChevronDown className="h-4 w-4 text-gray-500" />
+              
             </button>
-
-            {/* Dropdown Menu */}
-            {isProfileOpen && (
-              <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-1 border border-gray-200">
-                <div className="px-4 py-2 border-b border-gray-200">
-                  <p className="text-sm font-semibold text-gray-700">{admin.name}</p>
-                  <p className="text-xs text-gray-500">{admin.email}</p>
-                </div>
-                <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center">
-                  <User className="h-4 w-4 mr-2" /> Profile
-                </button>
-                <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center">
-                  <Settings className="h-4 w-4 mr-2" /> Settings
-                </button>
-                <div className="border-t border-gray-200">
-                  <button className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100 flex items-center">
-                    <LogOut className="h-4 w-4 mr-2" /> Sign out
-                  </button>
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </div>
