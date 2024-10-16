@@ -12,6 +12,7 @@ import Customers from './pages/dashboard/Customers'
 import Orders from './pages/dashboard/Orders'
 import Products from './pages/dashboard/Products'
 import Transactions from './pages/dashboard/Transactions'
+import LandingPage from './pages/landingpage'
 
 function App() {
   const router = createBrowserRouter([
@@ -19,8 +20,12 @@ function App() {
     //path: "index",
     //element: "<GoBack/>"
 
-    {
-      path: "/",
+     {
+       path: "/",
+      element: <LandingPage />,
+    },
+     {
+       path: "/ad-list",
       element: <Hero />,
     },
 
