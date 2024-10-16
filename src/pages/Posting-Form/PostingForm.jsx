@@ -48,7 +48,7 @@ const PostingForm = () => {
         <h1 className="text-center text-2xl font-bold">Fill the Form Below to Post an Advert</h1>
         <form onSubmit={handleSubmit} className="bg-white flex flex-col gap-6 p-6 rounded-lg shadow-lg w-[620px]">
            <div className="flex flex-col">
-           <label className="text-lg font-semibold mb-2">Book Title</label>
+           <label className="text-lg font-semibold mb-2">Advert Title</label>
             <input
              name="title"
              type="text"
@@ -93,7 +93,7 @@ const PostingForm = () => {
                   type="submit"
                   className="mt-4 w-[150px] py-3 bg-blue-500 hover:bg-blue-700 text-white text-lg font-semibold rounded-full shadow-md transition duration-300 ease-in-out "
                 >
-                  Upload Book
+                  Post Advert
                 </button>
     
 

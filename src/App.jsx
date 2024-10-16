@@ -12,6 +12,7 @@ import Customers from './pages/dashboard/Customers'
 import Orders from './pages/dashboard/Orders'
 import Products from './pages/dashboard/Products'
 import Transactions from './pages/dashboard/Transactions'
+import Forgotten from './pages/Users-Venders/Forgotten'
 
 function App() {
   const router = createBrowserRouter([
@@ -39,6 +40,11 @@ function App() {
       path: "/login",
       element: <Login />,
 
+    },
+
+    {
+      path: "/forgotten",
+      element: <Forgotten/>,
     },
 
     {
