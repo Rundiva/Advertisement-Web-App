@@ -1,16 +1,34 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import Sidebar from '../component/Sidebar'
+import { Outlet } from 'react-router-dom';
+import Sidebar from '../component/Sidebar';
+import Header from '../pages/dashboard/Header.jsx'
 
-const DashboardLayout = () => {
+
+
+const Layout = () => {
   return (
-    <>
-    <div className="grid grid-cols-4">
-      <div className="col-span-1"> <Sidebar/></div>
-      <div className="col-span-3"><Outlet/></div>
-    </div>
-    </>
-  )
-}
+    <div className="min-h-screen bg-gray-50">
+      {/* Main grid container */}
+      <div className="grid grid-cols-12">
+        {/* Sidebar */}
+        <div className="col-span-2 bg-white shadow-lg min-h-screen">
+          <Sidebar/>
+        </div>
 
-export default DashboardLayout
+        {/* Main content area */}
+        <div className="col-span-10">
+          {/* Header section */}
+          <div className="w-full bg-white shadow-sm">
+            <Header/>
+          </div>
+          
+          {/* Main content section */}
+          <div className="p-6">
+            <Outlet />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Layout;
