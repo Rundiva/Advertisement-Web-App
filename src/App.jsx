@@ -1,97 +1,63 @@
-
+import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import './App.css'
-import Hero from './pages/Home/Hero'
-import Signup from './pages/Users-Venders/Signup'
-import Login from './pages/Users-Venders/Login'
-import PostingForm from './pages/Posting-Form/PostingForm'
+import LandingPage from './pages/landingpage'
+import RootLayout from './Layouts/RootLayout'
 import DashboardLayout from './Layouts/DashboardLayout'
-import Settings from './pages/dashboard/Settings'
+import Dashboard from './pages/dashboard/Dashboard'
 import Customers from './pages/dashboard/Customers'
 import Orders from './pages/dashboard/Orders'
 import Products from './pages/dashboard/Products'
-import Transactions from './pages/dashboard/Transactions'
-import LandingPage from './pages/landingpage'
-import Todos from './pages/dashboard/Todos'
-import SingleView from './pages/dashboard/SingleView'
+import Settings from './pages/dashboard/Settings'
+import Login from './pages/Users-Venders/Login'
+import Signup from './pages/Users-Venders/Signup'
+import Adverts from './pages/dashboard/Adverts'
+import Forgotten from './pages/Users-Venders/Forgotten'
 
 
-function App() {
+
+const App = () => {
+
   const router = createBrowserRouter([
-     {
-       path: "/",
-      element: <LandingPage />,
-    },
-     {
-       path: "/ad-list",
-      element: <Hero />,
-    },
-
     {
-      path: "/signup",
-      element: <Signup />,
-    },
+      path: "/",
+      element: <RootLayout />,
+      children: [
+        {
+          index: true, element: <LandingPage />,
+        },
 
+
+      ]
+    },
     {
       path: "/login",
       element: <Login />,
-
     },
-
+    {
+      path: "/signup",
+      element: <Signup />
+    },
+    {
+      path: "/forgotten",
+      element: <Forgotten />,
+    },
     {
       path: "/dashboard",
       element: <DashboardLayout />,
       children: [
-        {
-          path: "todos",
-          element: <Todos/>,
-        },
-
-        {
-          path: "postingform",
-          element: <PostingForm />,
-    
-        },
-
-        {
-          path: "products",
-          element: <Products/>,
-        },
-
-        {
-          path: "orders",
-          element: <Orders/>,
-        },
-
-        {
-          path: "customers",
-          element: <Customers/>,
-        },
-       
-        {
-          path: "transactions",
-          element: <Transactions/>,
-        },
-
-        {
-          path: "settings",
-          element: <Settings/>,
-        },
-
-        {
-          path: "todos/:id",
-          element: <SingleView/>,
-        },
-        
-      ],
-    },
-
-
-
-
+        { index: true, element: <Adverts /> },
+        { path: 'customers', element: <Customers /> },
+        { path: 'orders', element: <Orders /> },
+        { path: 'products', element: <Products /> },
+        { path: 'settings', element: <Settings /> }
+      ]
+    }
   ])
 
-  return (<RouterProvider router={router} />
+  return (
+    <div>
+      <RouterProvider router={router} />
+    </div>
   )
 }
 

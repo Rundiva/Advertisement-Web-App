@@ -11,7 +11,7 @@ const images = [
     `url(${image2})`,
     `url(${image3})`,
 ];
-    
+
 const LandingPage = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -27,14 +27,6 @@ const LandingPage = () => {
         <div>
             <div id='landingImg'>
                 <div className="relative h-screen overflow-hidden">
-
-                    {/* Navbar */}
-                    <nav className="absolute top-0 w-full py-4 bg-transparent z-10">
-                        <div className="container mx-auto px-4 flex justify-end space-x-6">
-                            <a href="#login" className="text-white font-semibold">Login</a>
-                            <a href="#signup" className="text-white font-semibold">Sign Up</a>
-                        </div>
-                    </nav>
 
                     {/* Buttons */}
                     <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 z-10 space-x-4 pt-[20rem]">

@@ -1,14 +1,15 @@
 import React from 'react'
 import Footer from '../component/Footer';
 import Navbar from '../component/Navbar';
+import { Outlet } from 'react-router-dom';
 
-const RootLayout = ({children, headerText}) => {
+
+const RootLayout = ({ children, headerText }) => {
   return (
     <div>
-    <Navbar/>
-    <h1> {headerText}</h1>
-    <div>{children}</div>
-    <Footer/>
+      <Navbar />
+      <Outlet />
+      <Footer />
     </div>
   );
 };

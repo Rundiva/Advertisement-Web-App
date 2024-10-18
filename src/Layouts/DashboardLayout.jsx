@@ -4,7 +4,7 @@ import Header from '../pages/dashboard/Header.jsx'
 
 
 
-const Layout = () => {
+const DashboardLayout = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Main grid container */}
@@ -31,4 +31,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default DashboardLayout;
