@@ -30,7 +30,7 @@ const LandingPage = () => {
 
                     {/* Buttons */}
                     <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 z-10 space-x-4 pt-[20rem]">
-                        <Link to='/ad-list'><button className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-white hover:text-blue  transition">View Ads</button></Link>
+                        <Link to='/adverts'><button className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-white hover:text-blue  transition">View Ads</button></Link>
                         <Link to='/login'><button className="px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition">Post Ad</button></Link>
                     </div>
 

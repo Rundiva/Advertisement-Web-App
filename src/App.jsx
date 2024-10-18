@@ -34,6 +34,10 @@ const App = () => {
       element: <Login />,
     },
     {
+      path: "/adverts",
+      element: <Adverts/>
+    },
+    {
       path: "/signup",
       element: <Signup />
     },
