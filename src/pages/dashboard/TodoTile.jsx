@@ -1,10 +1,12 @@
-const TodoTile = ({title, icon}) => {
+import { Link } from "react-router-dom";
+
+const TodoTile = ({title, icon, id}) => {
     return(
-        <div className="flex border-[10px]">
+        <Link to={`todos/${id}`} className="flex border-[10px]">
             <input type="checkbox" />
             <p>{title}</p>
             <img src={`https://savefiles.org/${icon}?shareable_link=391`} alt={title}/>
-        </div>
+        </Link>
     )
 }
 

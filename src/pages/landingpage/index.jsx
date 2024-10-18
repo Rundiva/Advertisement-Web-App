@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import image1 from '../assets/ads.jpg';
-import image2 from '../assets/convo.jpg';
-// import image3 from './assets/image3.jpg';
+// import image1 from '../assets/ads.jpg';
+import image1 from "../../assets/ads.jpg"
+import image2 from '../../assets/convo.jpg';
+import image3 from '../../assets/convo.jpg';
 
 const images = [
     `url(${image1})`,
