@@ -11,7 +11,11 @@ import Settings from './pages/dashboard/Settings'
 import Login from './pages/Users-Venders/Login'
 import Signup from './pages/Users-Venders/Signup'
 import Adverts from './pages/dashboard/Adverts'
-import Forgotten from './pages/Users-Venders/Forgotten'
+import Forgotten from './pages/Users-Venders/Forgotten'  
+import ListView from './pages/landingpage/ListView'
+import GridView from './pages/landingpage/GridView'
+
+
 
 
 
@@ -40,6 +44,14 @@ const App = () => {
     {
       path: "/signup",
       element: <Signup />
+    },
+    {
+      path: "/listview",
+      element: <ListView />
+    },
+    {
+      path: "/gridview",
+      element: <GridView />
     },
     {
       path: "/forgotten",
