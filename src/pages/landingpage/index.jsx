@@ -9,6 +9,7 @@ import ExampleAd from '../../assets/car1.webp'
 import AdIcon from '../../assets/addIcon.png'
 import ListViewIcon from '../../assets/list-view.png'
 import GridViewIcon from '../../assets/grid.png'
+import SearchBar from './searchBar';
 
 
 const images = [
@@ -55,13 +56,14 @@ const LandingPage = () => {
 
                 </div>
                 <div>
+                        <SearchBar />
                     <h1 className='text-4xl flex p-4 ml-16 items-center font-sans font-semibold pt-16 mb-[-3rem]'>Latest Ads</h1>
 
                     {/* Grid and list view icons */}
                     <div className='flex w-32 ml-[85rem] gap-3'>
                         <Link to='/ListView'><img src={ListViewIcon} alt="img" /></Link>
                         <Link to='/GridView'> <img src={GridViewIcon} alt="img" /></Link>
-                    </div> 
+                    </div>
 
                     {/* Grid View */}
                     <div className='flex'>
