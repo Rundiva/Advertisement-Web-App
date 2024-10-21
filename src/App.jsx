@@ -12,7 +12,6 @@ import Login from './pages/Users-Venders/Login'
 import Signup from './pages/Users-Venders/Signup'
 import Adverts from './pages/dashboard/Adverts'
 import Forgotten from './pages/Users-Venders/Forgotten'
-import PostingForm from './pages/Posting-Form/PostingForm'
 
 
 
@@ -41,6 +40,14 @@ const App = () => {
     {
       path: "/signup",
       element: <Signup />
+    },
+    {
+      path: "/listview",
+      element: <ListView />
+    },
+    {
+      path: "/gridview",
+      element: <GridView />
     },
     {
       path: "/forgotten",

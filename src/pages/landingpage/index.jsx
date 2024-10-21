@@ -3,8 +3,13 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 // import image1 from '../assets/ads.jpg';
 import image1 from "../../assets/ads.jpg"
-import image2 from '../../assets/convo.jpg';
-import image3 from '../../assets/convo.jpg';
+import image2 from '../../assets/car3.jpg';
+import image3 from '../../assets/car4.jpg';
+import ExampleAd from '../../assets/car1.webp'
+import AdIcon from '../../assets/addIcon.png'
+import ListViewIcon from '../../assets/list-view.png'
+import GridViewIcon from '../../assets/grid.png'
+
 
 const images = [
     `url(${image1})`,
@@ -28,9 +33,12 @@ const LandingPage = () => {
             <div id='landingImg'>
                 <div className="relative h-screen overflow-hidden">
 
-                    {/* Buttons */}
-                    <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 z-10 space-x-4 pt-[20rem]">
-                        <Link to='/adverts'><button className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-white hover:text-blue  transition">View Ads</button></Link>
+                    <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 z-10 space-x-4 pt-[20rem items-center">
+                        {/* hero-caption */}
+                        <div className='text-6xl font-sans font-extrabold items-center text-white'>Welcome to RunAds! Sell your Automobile Faster with Us</div>
+
+                        {/* Buttons */}
+                        <Link to='/adverts'><button className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-white hover:text-blue  transition mt-5">View Ads</button></Link>
                         <Link to='/login'><button className="px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition">Post Ad</button></Link>
                     </div>
 
@@ -45,6 +53,137 @@ const LandingPage = () => {
                         transition={{ duration: 1.5 }}
                     />
 
+                </div>
+                <div>
+                    <h1 className='text-4xl flex p-4 ml-16 items-center font-sans font-semibold pt-16 mb-[-3rem]'>Latest Ads</h1>
+
+                    {/* Grid and list view icons */}
+                    <div className='flex w-32 ml-[85rem] gap-3'>
+                        <Link to='/ListView'><img src={ListViewIcon} alt="img" /></Link>
+                        <Link to='/GridView'> <img src={GridViewIcon} alt="img" /></Link>
+                    </div> 
+
+                    {/* Grid View */}
+                    <div className='flex'>
+                        <div className='flex p-20 items-center'>
+                            <div>
+                                <Link to='/login'><img className='w-[20vw]' src={AdIcon} alt="img" /></Link>
+                                <h2 className='font-extrabold text-red-600'>Are you a vendor? Post New Ads for Free</h2>
+                                {/* <p>Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            <h2 className='font-bold'>GHC200,0000</h2> */}
+                                <Link to='/login'><button className="px-9 py-5 mt-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition">Post Now!</button></Link>
+                            </div>
+                        </div>
+                        <div className='flex p-20 items-center'>
+                            <div>
+                                <Link to='/singleAd'><img className='w-[20vw]' src={ExampleAd} alt="img" /></Link>
+                                <h2 className='font-extrabold'>Macedece Benz</h2>
+                                <p>Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <h2 className='font-bold'>GHC200,0000</h2>
+                                <button className='bg-[#1A1F71] p-5 rounded-md text-white'>Contact Vendor</button>
+                            </div>
+                        </div>
+                        <div className='flex p-20 items-center'>
+                            <div>
+                                <img className='w-[20vw]' src={ExampleAd} alt="img" />
+                                <h2 className='font-extrabold'>Macedece Benz</h2>
+                                <p>Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <h2 className='font-bold'>GHC200,0000</h2>
+                                <button className='bg-[#1A1F71] p-5 rounded-md text-white'>Contact Vendor</button>
+                            </div>
+                        </div>
+                        <div className='flex p-20 items-center'>
+                            <div>
+                                <img className='w-[20vw]' src={ExampleAd} alt="img" />
+                                <h2 className='font-extrabold'>Macedece Benz</h2>
+                                <p>Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <h2 className='font-bold'>GHC200,0000</h2>
+                                <button className='bg-[#1A1F71] p-5 rounded-md text-white'>Contact Vendor</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='flex'>
+
+                        <div className='flex p-20 items-center'>
+                            <div className='flex p-20 items-center'>
+                                <div>
+                                    <img className='w-[20vw]' src={ExampleAd} alt="img" />
+                                    <h2 className='font-extrabold'>Macedece Benz</h2>
+                                    <p>Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                    <h2 className='font-bold'>GHC200,0000</h2>
+                                    <button className='bg-[#1A1F71] p-5 rounded-md text-white'>Contact Vendor</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='flex p-20 items-center'>
+                            <div>
+                                <img className='w-[20vw]' src={ExampleAd} alt="img" />
+                                <h2 className='font-extrabold'>Macedece Benz</h2>
+                                <p>Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <h2 className='font-bold'>GHC200,0000</h2>
+                                <button className='bg-[#1A1F71] p-5 rounded-md text-white'>Contact Vendor</button>
+                            </div>
+                        </div>
+                        <div className='flex p-20 items-center'>
+                            <div>
+                                <img className='w-[20vw]' src={ExampleAd} alt="img" />
+                                <h2 className='font-extrabold'>Macedece Benz</h2>
+                                <p>Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <h2 className='font-bold'>GHC200,0000</h2>
+                                <button className='bg-[#1A1F71] p-5 rounded-md text-white'>Contact Vendor</button>
+                            </div>
+                        </div>
+                        <div className='flex p-20 items-center'>
+                            <div>
+                                <img className='w-[20vw]' src={ExampleAd} alt="img" />
+                                <h2 className='font-extrabold'>Macedece Benz</h2>
+                                <p>Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <h2 className='font-bold'>GHC200,0000</h2>
+                                <button className='bg-[#1A1F71] p-5 rounded-md text-white'>Contact Vendor</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='flex'>
+
+                        <div className='flex p-20 items-center'>
+                            <div className='flex p-20 items-center'>
+                                <div>
+                                    <img className='w-[20vw]' src={ExampleAd} alt="img" />
+                                    <h2 className='font-extrabold'>Macedece Benz</h2>
+                                    <p>Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                    <h2 className='font-bold'>GHC200,0000</h2>
+                                    <button className='bg-[#1A1F71] p-5 rounded-md text-white'>Contact Vendor</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='flex p-20 items-center'>
+                            <div>
+                                <img className='w-[20vw]' src={ExampleAd} alt="img" />
+                                <h2 className='font-extrabold'>Macedece Benz</h2>
+                                <p>Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <h2 className='font-bold'>GHC200,0000</h2>
+                                <button className='bg-[#1A1F71] p-5 rounded-md text-white'>Contact Vendor</button>
+                            </div>
+                        </div>
+                        <div className='flex p-20 items-center'>
+                            <div>
+                                <img className='w-[20vw]' src={ExampleAd} alt="img" />
+                                <h2 className='font-extrabold'>Macedece Benz</h2>
+                                <p>Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <h2 className='font-bold'>GHC200,0000</h2>
+                                <button className='bg-[#1A1F71] p-5 rounded-md text-white'>Contact Vendor</button>
+                            </div>
+                        </div>
+                        <div className='flex p-20 items-center'>
+                            <div>
+                                <img className='w-[20vw]' src={ExampleAd} alt="img" />
+                                <h2 className='font-extrabold'>Macedece Benz</h2>
+                                <p>Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <h2 className='font-bold'>GHC200,0000</h2>
+                                <button className='bg-[#1A1F71] p-5 rounded-md text-white'>Contact Vendor</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
