@@ -19,7 +19,7 @@ const Sidebar = () => {
           <li><Link to="/dashboard/customers" className="flex items-center"><Users className="mr-3 h-5 w-5" /> Customers</Link></li>
           <li><Link to="/dashboard/transactions" className="flex items-center"><RefreshCcw className="mr-3 h-5 w-5" /> Transactions</Link></li>
           <li>
-            <Link to='/dashboard/postingform' className="flex items-center">
+            <Link to= "/postingform" className="flex items-center">
               <FilePlus className="mr-3 h-5 w-5" /> POST AD
             </Link>
           </li>

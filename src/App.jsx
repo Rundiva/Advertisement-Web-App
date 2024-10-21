@@ -12,6 +12,11 @@ import Login from './pages/Users-Venders/Login'
 import Signup from './pages/Users-Venders/Signup'
 import Adverts from './pages/dashboard/Adverts'
 import Forgotten from './pages/Users-Venders/Forgotten'
+import ListView from './pages/landingpage/ListView'
+import GridView from './pages/landingpage/GridView'
+import PostingForm from './pages/Users-Venders/PostingForm'
+
+
 
 
 
@@ -43,19 +48,20 @@ const App = () => {
     },
     {
       path: "/listview",
-      element: <ListView />
+      element: <ListView/>
     },
     {
       path: "/gridview",
-      element: <GridView />
+      element: <GridView/>
     },
     {
       path: "/forgotten",
       element: <Forgotten />,
     },
     {
-      path : "/postingform",
-      element: <PostingForm/>,
+      path: "/postingform",
+      element: <PostingForm/>
+
     },
     {
       path: "/dashboard",
@@ -65,7 +71,8 @@ const App = () => {
         { path: 'customers', element: <Customers /> },
         { path: 'orders', element: <Orders /> },
         { path: 'products', element: <Products /> },
-        { path: 'settings', element: <Settings /> }
+        { path: 'settings', element: <Settings /> },
+        { path:'postAd', element: <PostingForm/> },
       ]
     }
   ])

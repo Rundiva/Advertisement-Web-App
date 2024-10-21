@@ -9,7 +9,7 @@ const Adverts = () => {
     //2. Define a function to get adverts
     const getAdverts = async () => {
         //Use axios to get adverts
-        const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/todos?limit=0&skip=5`);
+        const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/adverts?limit=0&skip=10`);
         console.table(response.data);
         //Update adverts state
         setAdverts(response.data);

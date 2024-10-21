@@ -11,13 +11,13 @@ const Footer = () => {
     <div className='flex gap-x-[60px] justify-center items-center bg-[#1A1F71] text-white h-[50vh]'>
       <div>
         <h1 className='mb-3'>GET IN TOUCH</h1>
-        <p>Any questions? Let us know in store at 8th floor, 379 <br /> Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+        <p>Any questions? Let us know in store at 8th floor, 379 <br /> Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879</p>
 <div className='flex gap-x-3 mt-3'>
 <FaFacebook />
 <FaInstagramSquare />
 <FaTwitterSquare />
 </div>
-</p>
+
 
       </div>
       <div>
