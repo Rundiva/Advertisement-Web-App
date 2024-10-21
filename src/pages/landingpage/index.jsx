@@ -9,6 +9,8 @@ import ExampleAd from '../../assets/car1.webp'
 import AdIcon from '../../assets/addIcon.png'
 import ListViewIcon from '../../assets/list-view.png'
 import GridViewIcon from '../../assets/grid.png'
+import AdListFilterIcon from '../../assets/filter.png';
+import AdFetchMain from '../../constant/AdFetchMain';
 
 
 const images = [
@@ -55,16 +57,18 @@ const LandingPage = () => {
 
                 </div>
                 <div>
-                    <h1 className='text-4xl flex p-4 ml-16 items-center font-sans font-semibold pt-16 mb-[-3rem]'>Latest Ads</h1>
-
                     {/* Grid and list view icons */}
-                    <div className='flex w-32 ml-[85rem] gap-3'>
+                    <div className='flex w-32 ml-[85rem] gap-3 mt-20'>
                         <Link to='/ListView'><img src={ListViewIcon} alt="img" /></Link>
                         <Link to='/GridView'> <img src={GridViewIcon} alt="img" /></Link>
-                    </div> 
-
-                    {/* Grid View */}
-                    <div className='flex'>
+                        <Link to='/AdListFilter'> <img src={AdListFilterIcon} alt="img" /></Link>
+                    </div>
+                    <section>
+                        <AdFetchMain />
+                    </section>
+                    {/* Grid View */} 
+                    <h1 className='text-4xl flex p-4 ml-16 items-center font-sans font-semibold pt-16 mb-[-3rem]'>Latest Ads</h1>
+                    <div className='flex'> 
                         <div className='flex p-20 items-center'>
                             <div>
                                 <Link to='/login'><img className='w-[20vw]' src={AdIcon} alt="img" /></Link>
