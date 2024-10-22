@@ -60,8 +60,8 @@ const SearchBar = () => {
         />
 
         {/* Search button */}
-        <button onClick={handleSearch} className="search-button bg-blue-600 p-5 rounded-r-lg text-white">
-          Search
+        <button  onClick={handleSearch} className="search-button bg-blue-600 p-5 rounded-r-lg text-white">
+         {loading ? "Loading..." : "Search"} 
         </button>
       </div>
 

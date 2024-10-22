@@ -9,7 +9,12 @@ import ExampleAd from '../../assets/car1.webp'
 import AdIcon from '../../assets/addIcon.png'
 import ListViewIcon from '../../assets/list-view.png'
 import GridViewIcon from '../../assets/grid.png'
+import FilterViewIcon from '../../assets/filter.png'
 import SearchBar from './searchBar';
+import AdFetchMain from './AdFetchMain';
+import { FilterIcon } from 'lucide-react';
+// import AdDetailsMain from '../singleAd/AdDetailsMain';
+
 
 
 const images = [
@@ -60,13 +65,15 @@ const LandingPage = () => {
                     <h1 className='text-4xl flex p-4 ml-16 items-center font-sans font-semibold pt-16 mb-[-3rem]'>Latest Ads</h1>
 
                     {/* Grid and list view icons */}
-                    <div className='flex w-32 ml-[85rem] gap-3'>
+                    <div className='flex w-32 ml-[70rem] gap-3'>
                         <Link to='/ListView'><img src={ListViewIcon} alt="img" /></Link>
                         <Link to='/GridView'> <img src={GridViewIcon} alt="img" /></Link>
+                        <Link to='/'> <img src={FilterViewIcon} alt="filter" /></Link>
                     </div>
 
                     {/* Grid View */}
-                    <div className='flex'>
+                        <AdFetchMain />
+                    <div className='flex'> 
                         <div className='flex p-20 items-center'>
                             <div>
                                 <Link to='/login'><img className='w-[20vw]' src={AdIcon} alt="img" /></Link>

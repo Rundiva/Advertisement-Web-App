@@ -14,6 +14,7 @@ import Adverts from './pages/dashboard/Adverts'
 import Forgotten from './pages/Users-Venders/Forgotten'  
 import ListView from './pages/landingpage/ListView'
 import GridView from './pages/landingpage/GridView' 
+import AdDetailsMain from './pages/singleAd/AdDetailsMain'
 // import AdDetailsMain from './pages/singleAd/AdDetailsMain'
 
 
@@ -39,10 +40,10 @@ const App = () => {
       path: "/login",
       element: <Login />,
     },
-    // {
-    //   path: "/ads/:id",
-    //   element:<AdDetailsMain />
-    // },
+    {
+      path: "/ads/:id",
+      element:<AdDetailsMain />
+    },
     {
       path: "/adverts",
       element: <Adverts/>
