@@ -1,6 +1,5 @@
 import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import LandingPage from './pages/landingpage'
 import RootLayout from './Layouts/RootLayout'
 import DashboardLayout from './Layouts/DashboardLayout'
 import Dashboard from './pages/dashboard/Dashboard'
@@ -18,6 +17,7 @@ import PostingForm from './pages/Users-Venders/PostingForm'
 import { FaTrainSubway } from 'react-icons/fa6'
 import Transactions from './pages/dashboard/Transactions'
 import SingleView from './pages/dashboard/SingleView'
+import LandingPage from './pages/landingpage'
 // import AdDetailsMain from './pages/singleAd/AdDetailsMain'
 
 
@@ -33,7 +33,7 @@ const App = () => {
       element: <RootLayout />,
       children: [
         {
-          index: true, element: <LandingPage />,
+          index: true, element: <LandingPage/>,
         },
 
 
