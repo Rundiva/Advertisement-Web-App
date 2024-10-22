@@ -1,12 +1,12 @@
 import { apiClient } from "./config";
 
 export const apiGetProducts = async() => 
-apiClient.get("/products");
+apiClient.get("/adverts");
 
 
 
 export const apiAddProducts = async (payload) =>
-    apiClient.post("/products", payload);
+    apiClient.post("/adverts", payload);
 
 export const apiGetSingleProduct = async(id)=>
-    apiClient.get(`/todo/${id}`);
+    apiClient.get(`/advert/${id}`);

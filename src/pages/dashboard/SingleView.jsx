@@ -65,11 +65,11 @@ const SingleView = () => {
                 </div>
 
                 <div className="flex gap-4">
-                    <button onclick={handleEdit}
+                    <button onClick={handleEdit}
                      className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors">
                         Edit
                     </button>
-                    <button onclick={handleDelete}
+                    <button onClick={handleDelete}
                     className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors">
                         Delete
                     </button>

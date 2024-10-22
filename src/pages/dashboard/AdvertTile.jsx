@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const AdvertTile = ({title, icon, id}) => {
     return(
-        <Link to={`todos/${id}`} className="flex border-[10px]">
+        <Link to={`adverts/${id}`} className="flex border-[10px]">
             {/* <input type="checkbox" /> */}
             <p>{title}</p>
             <img src={`https://savefiles.org/${icon}?shareable_link=391`} alt={title}/>
