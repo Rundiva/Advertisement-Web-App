@@ -14,6 +14,10 @@ import Adverts from './pages/dashboard/Adverts'
 import Forgotten from './pages/Users-Venders/Forgotten'  
 import ListView from './pages/landingpage/ListView'
 import GridView from './pages/landingpage/GridView' 
+import PostingForm from './pages/Users-Venders/PostingForm'
+import { FaTrainSubway } from 'react-icons/fa6'
+import Transactions from './pages/dashboard/Transactions'
+import SingleView from './pages/dashboard/SingleView'
 // import AdDetailsMain from './pages/singleAd/AdDetailsMain'
 
 
@@ -51,6 +55,7 @@ const App = () => {
       path: "/signup",
       element: <Signup />
     },
+  
     {
       path: "/listview",
       element: <ListView />
@@ -63,6 +68,10 @@ const App = () => {
       path: "/forgotten",
       element: <Forgotten />,
     },
+    {path: "/postingform",
+      element: <PostingForm/>
+
+    },
     {
       path: "/dashboard",
       element: <DashboardLayout />,
@@ -71,7 +80,9 @@ const App = () => {
         { path: 'customers', element: <Customers /> },
         { path: 'orders', element: <Orders /> },
         { path: 'products', element: <Products /> },
-        { path: 'settings', element: <Settings /> }
+        { path: 'settings', element: <Settings /> },
+        { path: 'transactions', element: <Transactions/>},
+        { path: 'singleview', element: <SingleView/>}
       ]
     }
   ])
