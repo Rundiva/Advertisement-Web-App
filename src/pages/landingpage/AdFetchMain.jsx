@@ -18,10 +18,10 @@ const AdFetchMain = () => {
                             <div className="flex mx-auto">
                                 < div className="w-[235px] items-center text-center">
                                     <div key={index} className="border p-4 rounded-lg shadow-md items-center">
-                                        <img src={ad.coverPicture} alt="ad-image" className='mx-auto' />
+                                        <img src={ad.image} alt="ad-image" className='mx-auto' />
                                         <h2 className="text-xl text-themeColor mt-5 font-semibold">{ad.title}</h2>
-                                        <p className="text-gray-500">{ad.genre}</p>
-                                        <p className="text-black font-medium">{ad.author}</p>
+                                        <p className="text-gray-500">{ad.category}</p>
+                                        <p className="text-black font-medium">{ad.vendor}</p>
                                         <div className='flex gap-2'>
                                             <Link to={`/ads/${ad._id}`}>
                                                 <button className="mt-4 px-2 py-1 border-themeColor text-themeColor rounded border-2 h-10 hover:bg-themeColor hover:text-blue-600 hover:border-themeColor">

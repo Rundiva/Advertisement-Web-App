@@ -1,79 +1,110 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
-import K from '../../constants';
-import IonIcon from "@reacticons/ionicons";
-// import SimilarAds from '../pages/bookDetails/SimilarAds';
+import { useEffect } from "react";
+import { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { apiGetSingleProduct } from "../services/product";
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import productImg from '../../assets/car5.png';
+import HorizontalScroll from "./HorizontalScroll";
+import Navbar from "../../component/Navbar";
+import LinkedinIcon from '../../assets/linkedin.png'
+import SocialLinks from "./SocialLinks";
+
 
 const AdDetailsMain = () => {
-    const { id } = useParams(); // getting id from constant index.js file...
-    const ad = K.ADS.find(ads => ad._id === id); // finding book by id
+    const { id } = useParams()
+    const navigate = useNavigate();
 
-    if (!ad)
-        return <div>Book not found...</div>
+    // Fetch single product details
+    const fetchAdvert = async () => {
+        try {
+            const res = await apiGetSingleProduct(id)
+            console.log(res)
+            // Add logic to set product state (if needed)
+        } catch (error) {
+            console.log(error.message);
+            toast.error(error.message);
+        }
+    };
+    // Delete product function
+    const handleDelete = async () => {
+        try {
+            await apiDeleteProduct(id);  // Assuming you have an API call for deleting a product
+            toast.success("Product deleted successfully!");
+            navigate("/"); // Redirect to home or product listing page after deletion
+
+        } catch (error) {
+            console.log(error.message);
+            toast.error("Failed to delete the product.")
+
+        }
+    };
+
+    // Edit button function - navigate to edit page
+    const handleEdit = () => {
+        navigate(`/signup`);
+    };
+    useEffect(() => {
+        fetchAdvert()
+    }, [])
+
+    const [loading, setLoading] = useState(false);
+
     return (
-        <div>
-            <div className="grid grid-cols-4 p-5 gap-5">
-                <div className="container col-span-3 border shadow-md h-fit pl-5 sticky top-32">
-                    <h1 className="text-3xl text-themeColor font-bold p-2">Ad Details</h1>
-                    <div className="flex justify-between p-2">
-                        <img src={book.coverPicture} alt={book.title} className="h-[400px] w-1/3 shadow-md" />
-                        <div className="flex flex-col justify-between w-2/3 relative px-10">
-                            <h1 className="text-5xl font-bold text-themeColor">{book.title}</h1>
-                            <div className="desc. flex flex-col gap-1">
-                                <p className="text-gray-400 text-2xl">By: <span className="text-black text-3xl">{book.author.name}</span></p>
-                                <p className="text-gray-400 mt-4 text-base">Genre: <span className="text-black text-lg">{book.genre}</span></p>
-                                <p className="text-gray-400 text-base">Published on: <span className="text-black text-lg">{new Date(book.datePublished).toDateString()}</span></p>
-                                <p className="text-gray-400 text-base ">Headline: <span className="text-black text-lg">{book.content}</span></p>
-                                <p className="text-gray-400 text-base ">About Book: <span className="text-black text-lg">{book.description}</span></p>
-                                <p className="text-gray-400 mt-2 text-base ">
-                                    Rating:{" "}
-                                    <span className="text-[#ffe234]">
-                                        <IonIcon name="star" className=" md:text-xl" />
-                                        <IonIcon name="star" className=" md:text-xl" />
-                                        <IonIcon name="star" className=" md:text-xl" />
-                                        <IonIcon name="star-half" className=" md:text-xl" />
-                                        <IonIcon name="star-outline" className=" md:text-xl" />
-                                    </span>{" "}
-                                    <span className="text-sm">
-                                        (39)
-                                    </span>
-                                </p>
-                            </div>
-                            <div className="text-gray-500 my-2 text-2xl flex gap-2 items-end relative w-52">
-                                <p>Price:</p>
-                                <p className="text-black text-3xl">$49.99</p>
-                                <p className="text-xs text-themeColor absolute top-0 right-2">37% off</p>
-                                <p className="text-sm line-through mt-2">$79.99</p>
-                            </div>
-                            <div className="cta flex gap-4">
-                                <button className="flex gap-2 py-2 px-2 rounded-full shadow-sm items-center bg-gray-200 text-gray-800 hover:bg-themeColor hover:text-white absolute right-4 top-2">
-                                    <IonIcon name="heart-outline" className=" md:text-2xl" />
-                                </button>
-                                <button className="flex gap-2 py-2 px-2 rounded-full shadow-sm items-center bg-gray-200 text-gray-800 hover:bg-[#d11a2a] hover:text-white absolute right-4 top-16">
-                                    <IonIcon name="trash-outline" className=" md:text-2xl" />
-                                </button>
-                                <button className="flex gap-2 py-2 px-3 rounded-lg shadow-md items-center bg-gray-200 text-gray-800 hover:bg-themeColor hover:text-white">
-                                    <p className=" text-base">Edit Book</p>
-                                    <IonIcon name="create-outline" className=" md:text-base " />
-                                </button>
-                                <button className="flex gap-2 py-2 px-3 rounded-lg shadow-md items-center bg-gray-200 text-gray-800 hover:bg-themeColor hover:text-white">
-                                    <p className=" text-base">Add to Cart</p>
-                                    <IonIcon name="cart-outline" className=" md:text-base" />
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+        <div >
+            <Navbar />
+            <div className="flex flex-col md:flex-row max-w-6xl mx-auto bg-blue-100 rounded-lg shadow-md mt-28 mb-28 p-36">
+                {/* Left side - Image */}
+                <div className="md:w-1/2">
+                    <img
+                        src={productImg}
+                        alt="Item preview"
+                        className="w-[100vw] h-full object-cover rounded-t-lg md:rounded-l-lg md:rounded-r-none"
+                    />
                 </div>
-                <div className="col-span-1">
-                    <div className="container col-span-3 border shadow-md h-fit pl-5">
-                        <h1 className="text-3xl text-themeColor font-bold p-2">Similar Ads</h1>
-                        <SimilarAds />
 
+                {/* Right side - Details */}
+                <div className="md:w-1/2 p-6 flex flex-col justify-between">
+                    <div>
+                        <h4 className="text-2xl font-semibold mb-4">Toyota</h4>
+                        <h4 className="text-gray-600 mb-6 font-medium">
+                            Price: GHC 99,000
+                        </h4>
+                        <p className="text-gray-600 mb-6">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                            Ipsam ratione accusantium exercitationem officiis sequi corrupti.
+                            <h4 className="font-medium">Ama Ghana Motors</h4>
+                        </p>
                     </div>
+
+                    <div className="flex gap-4">
+                        <a href="https://wa.me/message/WYTP4BTNACT2N1" target="_blank"><button onClick={handleEdit}
+                            className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors">
+                            {/* {loading ? "Not Yet Available..." : "Contact Vendor"} */}
+                            Chat Vendor
+                        </button></a>
+                        <Link to='/login'>  <button onClick={handleDelete}
+                            className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors">
+                            Post Ads Like This
+                        </button></Link>
+                    </div>
+                    <div className="w-[3vw] mt-5"> 
+                    
+                    <SocialLinks />
+                    </div>
+
                 </div>
             </div>
-        </div>
-    )
-}
+            <span>
+                <HorizontalScroll />
+            </span>
 
-export default AdDetailsMain
+
+
+        </div>
+    );
+};
+
+export default AdDetailsMain;
