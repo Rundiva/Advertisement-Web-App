@@ -18,7 +18,7 @@ import { FaTrainSubway } from 'react-icons/fa6'
 import Transactions from './pages/dashboard/Transactions'
 import SingleView from './pages/dashboard/SingleView'
 import LandingPage from './pages/landingpage'
-// import AdDetailsMain from './pages/singleAd/AdDetailsMain'
+import AdDetailsMain from './pages/singleAd/AdDetailsMain'
 
 
 
@@ -43,10 +43,10 @@ const App = () => {
       path: "/login",
       element: <Login />,
     },
-    // {
-    //   path: "/ads/:id",
-    //   element:<AdDetailsMain />
-    // },
+    {
+      path: "/ads/:id",
+      element:<AdDetailsMain />
+    },
     {
       path: "/adverts",
       element: <Adverts/>
@@ -70,7 +70,6 @@ const App = () => {
     },
     {path: "/postingform",
       element: <PostingForm/>
-
     },
     {
       path: "/dashboard",

@@ -5,7 +5,7 @@ const K = {
     AD: [
         {
             _id: 'ad1',
-            coverPicture: 'src/assets/car5.png',
+            image: 'src/assets/car5.png',
             title: "Corolla",
             price: "Ghc 99,000",
             vendor: "Ama Ghana",
@@ -15,7 +15,7 @@ const K = {
         },
         {
             _id: 'ad2',
-            coverPicture: 'src/assets/yaris2.jpg',
+            image: 'src/assets/yaris2.jpg',
             title: "Yaris",
             price: "Ghc 49,000",
             vendor: "Ama Ghana",
@@ -25,7 +25,7 @@ const K = {
         },
         {
             _id: 'ad3',
-            coverPicture: 'src/assets/yaris1.jpg',
+            image: 'src/assets/yaris1.jpg',
             title: "Hyuundai SUV",
             price: "Ghc 89,000",
             vendor: "Ama Ghana",
@@ -35,7 +35,7 @@ const K = {
         },
         {
             _id: 'ad4',
-            coverPicture: 'src/assets/truck1.png',
+            image: 'src/assets/truck1.png',
             title: "Tipper",
             price: "Ghc 99,000",
             vendor: "Ama Ghana",
@@ -46,7 +46,7 @@ const K = {
      
         {
             _id: 'ad1',
-            coverPicture: 'src/assets/car5.png',
+            image: 'src/assets/car5.png',
             title: "Corolla",
             price: "Ghc 99,000",
             vendor: "Ama Ghana",
@@ -56,7 +56,7 @@ const K = {
         },
         {
             _id: 'ad2',
-            coverPicture: 'src/assets/yaris2.jpg',
+            image: 'src/assets/yaris2.jpg',
             title: "Yaris",
             price: "Ghc 49,000",
             vendor: "Ama Ghana",
@@ -66,7 +66,7 @@ const K = {
         },
         {
             _id: 'ad3',
-            coverPicture: 'src/assets/yaris1.jpg',
+            image: 'src/assets/yaris1.jpg',
             title: "Hyuundai SUV",
             price: "Ghc 89,000",
             vendor: "Ama Ghana",
@@ -76,7 +76,7 @@ const K = {
         },
         {
             _id: 'ad4',
-            coverPicture: 'src/assets/truck1.png',
+            image: 'src/assets/truck1.png',
             title: "Tipper",
             price: "Ghc 99,000",
             vendor: "Ama Ghana",
