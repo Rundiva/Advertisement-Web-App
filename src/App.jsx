@@ -52,6 +52,11 @@ const App = () => {
       path: "/adverts",
       element: <Adverts/>
     },
+
+    {
+      path: "/adverts/:id",
+      element: <SingleView/>
+    },
     {
       path: "/signup",
       element: <Signup />

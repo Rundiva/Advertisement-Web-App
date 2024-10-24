@@ -2,20 +2,39 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { ToastContainer,toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { apiLogin } from '../services/auth'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const handleSubmit = async (event) => {
+    event.preventDefault()
         // Dummy validation for demonstration (replace with actual login logic)
-        const email = e.target.email.value
-        const password = e.target.password.value
-        if (email==="test@example.com" && password ==="password") {
-          toast.success("Login Succesful!")
-        } else {
-          toast.error("Invalid email or password")
+        const formData = new FormData(event.target);
+        const email = formData.get("email");
+        const password = formData.get("password")
+        const response = await apiLogin({email,password});
+        // console.log(response.data);
+        if (response.status===200){
+          localStorage.setItem("token",response.data.accessToken)
+         
         }
-  }
+
+        
+        if (response.status===200) {
+          localStorage.setItem("token", response.data.accessToken);
+          toast.success("Login Succesful!");
+          navigate('/dashboard')
+        } else {
+          toast.error("Invalid email or password");
+        }
+  //     } catch (error) {
+  //       // Catch network or API errors
+  //       console.error('Login error:', error);
+  //       toast.error("An error occurred during login.");
+  //     }
+  };
   return (
 
     <div className='flex flex-col justify-center items-center mt-[100px]   '>
