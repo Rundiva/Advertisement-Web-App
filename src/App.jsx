@@ -19,6 +19,7 @@ import Transactions from './pages/dashboard/Transactions'
 import SingleView from './pages/dashboard/SingleView'
 import LandingPage from './pages/landingpage'
 import AdDetailsMain from './pages/singleAd/AdDetailsMain'
+import { Filter } from 'lucide-react'
 
 
 
@@ -64,6 +65,10 @@ const App = () => {
     {
       path: "/listview",
       element: <ListView />
+    },
+    {
+      path: "/filterview",
+      element: <Filter />
     },
     {
       path: "/gridview",

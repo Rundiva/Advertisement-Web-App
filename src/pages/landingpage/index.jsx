@@ -10,8 +10,11 @@ import AdIcon from '../../assets/addIcon.png'
 import ListViewIcon from '../../assets/list-view.png'
 import GridViewIcon from '../../assets/grid.png'
 import FilterViewIcon from '../../assets/filter.png'
-import SearchBar from './searchBar'; 
+import SearchBar from './searchBar';
 import AdFetchMain from './AdFetchMain';
+import { Filter } from 'lucide-react';
+import ApiGetProduct from './ApiGetAdvert';
+import DropDownFilter from './DropDownFilter';
 
 
 
@@ -44,6 +47,7 @@ const LandingPage = () => {
                         {/* Buttons */}
                         <Link to='/adverts'><button className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-white hover:text-blue  transition mt-5">View Ads</button></Link>
                         <Link to='/login'><button className="px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition">Post Ad</button></Link>
+
                     </div>
 
                     {/* Background Image Slider */}
@@ -59,7 +63,13 @@ const LandingPage = () => {
 
                 </div>
                 <div>
-                    <SearchBar />
+                    <div>
+                        <SearchBar />
+
+                    </div>
+                    <div>
+                        <DropDownFilter />
+                    </div>
                     <h1 className='text-4xl flex p-4 ml-16 items-center font-sans font-semibold pt-16 mb-[-3rem]'>Latest Ads</h1>
 
                     {/* Grid and list view icons */}
@@ -68,7 +78,8 @@ const LandingPage = () => {
                         <Link to='/GridView'> <img src={GridViewIcon} alt="img" /></Link>
                         <Link to='/FilterView'> <img src={FilterViewIcon} alt="img" /></Link>
                     </div>
-                  <AdFetchMain />
+                    <ApiGetAdvert />
+                    <AdFetchMain />
                     {/* Grid View */}
                     <div className='flex'>
                         <div className='flex p-20 items-center'>

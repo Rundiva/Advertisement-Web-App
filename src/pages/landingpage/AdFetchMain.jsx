@@ -1,11 +1,25 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import K from '../../constants'
+import K from '../../constants' 
+import { useState } from 'react' 
+import axios from 'axios'
 
 
 // mapping on the constants...
 
-const AdFetchMain = () => {
+const 
+AdFetchMain = () => { 
+    //1. Declare state to store todos
+    const [ads, setAds] = useState([]);
+}
+    //2. Define a function to get ads
+    const getAds = async () => {
+        //use axios to get ads 
+        const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/ads?limit=0`);
+        console.table(response.data);
+        //Update ads state  
+        setAds(response.data);  
+
 
     return (
         <div>
@@ -23,7 +37,7 @@ const AdFetchMain = () => {
                                         <p className="text-gray-500">{ad.category}</p>
                                         <p className="text-black font-medium">{ad.vendor}</p>
                                         <div className='flex gap-2'>
-                                            <Link to={`/ads/${ad._id}`}>
+                                            <Link to={`/ads/${ad.id}`}>
                                                 <button className="mt-4 px-2 py-1 border-themeColor text-themeColor rounded border-2 h-10 hover:bg-themeColor hover:text-blue-600 hover:border-themeColor">
                                                     Preview
                                                 </button>
