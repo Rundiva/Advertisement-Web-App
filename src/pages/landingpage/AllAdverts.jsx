@@ -24,7 +24,7 @@ const AllAdverts = () => {
     <div className="flex flex-wrap mt-10 mx-auto ">
       {adverts.length > 0 ? (
         adverts.map((advert) => (
-          <div key={advert.id} className="shadow-md w-[20vw]  m-8 ml-13 items-center mb-4">
+          <div id="all-adverts" key={advert.id} className="shadow-md w-[20vw]  m-8 ml-13 items-center mb-4">
            <Link to={`/adverts/${advert.id}`}>
                 <img
                   src={`https://savefiles.org/${advert.image}?shareable_link=450`} 

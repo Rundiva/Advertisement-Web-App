@@ -48,7 +48,7 @@ const LandingPage = () => {
                         <div className='text-6xl font-sans font-extrabold items-center text-white'>Welcome to RunAds! Sell your Automobile Faster with Us</div>
 
                         {/* Buttons */}
-                        <Link to='/adverts'><button className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-white hover:text-blue  transition mt-5">View Ads</button></Link>
+                        <a href="#all-adverts"><button id='all-adverts' className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-white hover:text-blue-600  transition mt-5">View Ads</button></a>
                         <Link to='/login'><button className="px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition">Post Ad</button></Link>
 
                     </div>
