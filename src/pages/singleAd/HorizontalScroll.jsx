@@ -36,13 +36,13 @@ const HorizontalScroll = () => {
       {/* Left scroll button */}
       <button
         onClick={scrollLeft}
-        className="bg-blue-500 text-white p-2 rounded-full mr-2 focus:outline-none hover:bg-blue-700"
+        className="bg-blue-500 text-white p-2 rounded-full ml-2 focus:outline-none hover:bg-blue-700"
       >
         &#8592; {/* Left arrow */}
       </button>
 
       {/* Wrapper for Scrollable container */}
-      <div className="overflow-hidden w-full max-w-5xl">
+      <div className="overflow-hidden w-full max-w-7xl">
         {/* Scrollable container */}
         <div
           ref={scrollRef}
