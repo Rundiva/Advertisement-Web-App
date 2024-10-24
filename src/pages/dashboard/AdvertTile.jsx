@@ -1,12 +1,17 @@
 import { Link } from "react-router-dom";
 
-const AdvertTile = ({title, icon, id}) => {
+const AdvertTile = ({ id, title, description, image, category, price}) => {
     return(
-        <Link to={`adverts/${id}`} className="flex border-[10px]">
+        <div className="flex flex-col">
+            <Link to={`/adverts/${id}`} className=" border-[10px]">
             {/* <input type="checkbox" /> */}
             <p>{title}</p>
-            <img src={`https://savefiles.org/${icon}?shareable_link=391`} alt={title}/>
+            <p>{description}</p>
+            <p>{category}</p>
+            <p>{price}</p>
+            <img src={`https://savefiles.org/${image}?shareable_link=450`} alt={title}/>
         </Link>
+        </div>
     )
 }
 
