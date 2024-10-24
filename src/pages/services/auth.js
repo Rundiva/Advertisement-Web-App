@@ -8,8 +8,8 @@ export const apiLogin = async (payload) =>{
    return await apiClient.post("/users/login", payload);
 };
 
-export const apiDelete = async (payload) => { 
-    return await apiClient.delete("/categories/id", payload);
+export const apiDelete = async (id) => { 
+    return await apiClient.delete(`/adverts/${id}`);
 };
 
 // export const apiEdit = async (payload) => {

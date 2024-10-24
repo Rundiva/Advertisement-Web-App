@@ -10,3 +10,4 @@ export const apiAddProducts = async (payload) =>
 
 export const apiGetSingleProduct = async(id)=>
     apiClient.get(`/adverts/${id}`);
+ 
