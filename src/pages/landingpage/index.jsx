@@ -17,7 +17,7 @@ import DropDownFilter from './DropDownFilter';
 import AllAdverts from './AllAdverts';
 import K from '../../constants';
 import AdDetailsMain from '../singleAd/AdDetailsMain';
-import AdFetchMain from './AdFetchMain';
+
 
 
 
@@ -80,7 +80,7 @@ const LandingPage = () => {
                     </div>
                     <AllAdverts />
                     
-                    <AdFetchMain />
+                 
                     {/* Grid View */}
                    
                 </div>
