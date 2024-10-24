@@ -14,10 +14,6 @@ const Sidebar = () => {
       <nav className="flex-grow">
         <ul className="space-y-4">
           <li><Link to="/dashboard" className="flex items-center"><BarChart2 className="mr-3 h-5 w-5" /> Dashboard</Link></li>
-          <li><a href="/dashboard/products" className="flex items-center"><Box className="mr-3 h-5 w-5" /> Products</a></li>
-          <li><Link to="/dashboard/Orders" className="flex items-center"><ShoppingCart className="mr-3 h-5 w-5" /> Orders</Link></li>
-          <li><Link to="/dashboard/customers" className="flex items-center"><Users className="mr-3 h-5 w-5" /> Customers</Link></li>
-          <li><Link to="/dashboard/transactions" className="flex items-center"><RefreshCcw className="mr-3 h-5 w-5" /> Transactions</Link></li>
           <li>
             <Link to= "/postingform" className="flex items-center">
               <FilePlus className="mr-3 h-5 w-5" /> POST AD
@@ -34,8 +30,7 @@ const Sidebar = () => {
         <ul className="space-y-4">
           <li><Link to='/dashboard/settings' className="flex items-center"><Settings className="mr-3 h-5 w-5" /> Settings</Link></li>
 
-          {/* might throw an error */}
-          <li><Link href="#" className="flex items-center"><HelpCircle className="mr-3 h-5 w-5" /> Help & Support</Link></li>
+        
           <li><Link to="/" className="flex items-center"><LogOut className="mr-3 h-5 w-5" /> Logout</Link></li>
         </ul>
       </div>

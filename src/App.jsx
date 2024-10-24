@@ -94,9 +94,6 @@ const App = () => {
       element: <DashboardLayout />,
       children: [
         { index: true, element: <Adverts /> },
-        { path: 'customers', element: <Customers /> },
-        { path: 'orders', element: <Orders /> },
-        { path: 'products', element: <Products /> },
         { path: 'settings', element: <Settings /> },
         { path: 'transactions', element: <Transactions /> },
         { path: 'singleview', element: <SingleView /> }
