@@ -48,7 +48,7 @@ const SearchBar = () => {
 
   return (
     <div className="search-container bg-slate-300">
-      <div className="search-bar-wrapper ml-96 items-center pt-10 mr-2">
+      <div className="search-bar-wrapper ml-72 items-center pt-10 mr-2">
         {/* Search input */}
         <input
           type="text"
