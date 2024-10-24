@@ -1,46 +1,79 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
-import AdvertTile from "./AdvertTile";
 import { apiGetProducts } from "../services/product";
+import AdvertTile from "./AdvertTile"; // Import AdvertTile
 
 const Adverts = () => {
-  //1.Declare state to store adverts
+  // State to store adverts
   const [adverts, setAdverts] = useState([]);
-  //2. Define a function to get adverts
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Function to get adverts
   const getAdverts = async () => {
-    //Use axios to get adverts
-    const response = await apiGetProducts();
-    console.table(response.data);
-    //Update adverts state
-    setAdverts(response.data);
+    try {
+      // Fetch adverts from API
+      const response = await apiGetProducts();
+      console.table(response.data);
+      setAdverts(response.data);
+    } catch (err) {
+      setError("Failed to load adverts.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
-  }
-
-  //3. Call the function with useEffect
+  // Call the function with useEffect
   useEffect(() => {
     getAdverts();
   }, []);
 
+  // Render loading or error message
+  if (loading) {
+    return <div className="text-center py-12">Loading adverts...</div>;
+  }
+
+  if (error) {
+    return <div className="text-center py-12 text-red-500">{error}</div>;
+  }
+
   return (
-    // <div className="w-full h-[20vh] mx-auto p-6 bg-white rounded-lg shadow-md">
-    <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md">
-      <h1 className="text-3xl font-bold mb-6 text-gray-800">All Adverts</h1>
+    <div className="bg-blue-50 py-12">
+      <div className="max-w-5xl mx-auto p-8 bg-white rounded-lg shadow-md">
+        {/* Add Advert Button */}
+        <Link
+          to="/postingform"
+          className="inline-block px-8 py-3 mb-8 bg-blue-600 text-white text-lg font-semibold rounded-lg shadow hover:bg-blue-700 transition duration-300 font-poppins"
+        >
+          + Add Advert
+        </Link>
 
+        {/* Header */}
+        <h1 className="text-5xl font-bold text-gray-900 mb-10 text-center font-poppins">
+          All Adverts
+        </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {adverts.map((advert) => (
-          <AdvertTile id={advert.id} title={advert.title} description={advert.description} image={advert.image} category={advert?.category?.brand} price={advert.price} />
-        ))}
+        {/* Adverts Grid */}
+        {adverts.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 font-roboto">
+            {adverts.map((advert) => (
+              <AdvertTile // Use AdvertTile component
+                key={advert.id}
+                id={advert.id}
+                title={advert.title}
+                description={advert.description}
+                image={advert.image || 'https://via.placeholder.com/150'}
+                category={advert?.category?.brand}
+                price={advert.price}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-12">No adverts available at the moment.</div>
+        )}
       </div>
-      <Link
-        to="/postingform"
-        className="mt-6 inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
-      >
-        Add Advert
-      </Link>
     </div>
   );
-}
+};
 
 export default Adverts;
