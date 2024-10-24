@@ -74,7 +74,7 @@ const App = () => {
     },
 
     {
-      path: "/adverts/:id",
+      path: "/vendor-adverts/:id",
       element: <SingleView />
     },
     {
