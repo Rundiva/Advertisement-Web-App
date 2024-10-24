@@ -45,18 +45,19 @@ const App = () => {
       element: <Login />,
     },
     {
-      path: "/ads/:id",
+      path: "/adverts/:id",
       element:<AdDetailsMain />
     },
-    {
-      path: "/adverts",
-      element: <Adverts/>
-    },
+    // {
+    //   path: "/adverts",
+    //   element: <Adverts/>
+    // },
 
-    {
-      path: "/adverts/:id",
-      element: <SingleView/>
-    },
+    // {
+    //   path: "/adverts/:id",
+    //   element: <SingleView/>
+    // },
+  
     {
       path: "/signup",
       element: <Signup />

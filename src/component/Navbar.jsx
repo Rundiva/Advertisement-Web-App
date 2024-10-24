@@ -11,7 +11,7 @@ const Navbar = () => {
           <Link to='/'><img src={NavLogo} alt="img" /></Link>
         </div>
         <nav className="space-x-10 ml-96">
-          <a href="#">Home</a>
+          <a href="/">Home</a>
           <a href="#">About</a>
           <a href="#">Contact</a>
         </nav>

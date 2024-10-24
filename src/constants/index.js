@@ -1,5 +1,5 @@
 
-export const BASE_URL = "https://advertisement-api.onrender.com";
+export const VITE_BASE_URL = "https://advertisement-api.onrender.com";
 
 const K = {
     AD: [
