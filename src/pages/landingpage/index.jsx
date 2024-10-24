@@ -76,7 +76,7 @@ const LandingPage = () => {
                         <Link to='/GridView'> <img src={GridViewIcon} alt="img" /></Link>
                         <Link to='/FilterView'> <img src={FilterViewIcon} alt="img" /></Link>
                     </div>
-                    <ApiGetAdvert />
+                    
                     <AdFetchMain />
                     {/* Grid View */}
                     <div className='flex'>

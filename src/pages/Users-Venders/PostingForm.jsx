@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import { useState, useEffect } from "react";
+import "react-toastify/dist/ReactToastify.css"; // Ensure you import the CSS
 
 const PostingForm = () => {
   const [categories, setCategories] = useState([]); // State for storing categories
@@ -33,13 +34,14 @@ const PostingForm = () => {
     try {
       const response = await axios.post(`https://advertisement-api.onrender.com/adverts`, formData);
       console.log('Advert posted:', response.data);
-
+      
+      // Show success notification after posting advert
       toast.success("Advert posted successfully");
+      
       navigate('/dashboard'); // Navigate to dashboard after success
-
     } catch (error) {
       console.error('Error posting advert:', error);
-      toast.error("Failed to post advert.");
+      toast.error("Failed to post advert."); // Show error notification if there's a problem
     } finally {
       setLoading(false); // Stop loading after request completes
     }
@@ -47,6 +49,7 @@ const PostingForm = () => {
 
   return (
     <div className='flex flex-col justify-center items-center'>
+      <ToastContainer /> {/* Make sure this is included */}
       <h1 className="text-center text-2xl font-bold">Post an Ad</h1>
       <form onSubmit={saveAdvert} className="bg-white flex flex-col gap-6 p-6 rounded-lg shadow-lg w-[620px]">
         
@@ -124,6 +127,9 @@ const PostingForm = () => {
           </button>
         </div>
       </form>
+    
+    <ToastContainer
+    />
     </div>
   );
 }
