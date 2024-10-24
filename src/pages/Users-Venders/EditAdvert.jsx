@@ -1,68 +1,88 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { toast, ToastContainer } from "react-toastify";
 import { useState, useEffect } from "react";
-import "react-toastify/dist/ReactToastify.css"; // Ensure you import the CSS
+import { apiGetSingleProduct } from "../services/product";
+import { toast } from "react-toastify";
 
-const PostingForm = () => {
-  const [categories, setCategories] = useState([]); // State for storing categories
-  const [loading, setLoading] = useState(false); // Optional: Handle loading state
+
+const EditAdvertForm = () => {
+  const { id } = useParams();  // Get the id from the URL
+  const [categories, setCategories] = useState([]);
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [price, setPrice] = useState('');
+  const [category, setCategory] = useState('');
+  const [image, setImage] = useState(null);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   // Fetch categories from the API
   const getCategories = async () => {
     try {
       const response = await axios.get(`https://advertisement-api.onrender.com/categories`);
-      setCategories(response.data); // Set categories from API response
+      setCategories(response.data);
     } catch (error) {
-      console.error('Error fetching categories:', error);
+      console.error("Error fetching categories:", error);
       toast.error("Failed to load categories");
     }
   };
 
-  // Fetch categories when the component mounts
+  // Fetch existing advert details
+  const fetchAdvert = async () => {
+    try {
+      const response = await apiGetSingleProduct(id)
+      const { title, description, price, category } = response.data;
+      setTitle(title);
+      setDescription(description);
+      setPrice(price);
+      setCategory(category.id);
+    } catch (error) {
+      console.error("Error fetching advert details:", error);
+      toast.error("failed to update");
+    }
+  };
+
   useEffect(() => {
     getCategories();
-  }, []);
+    fetchAdvert();
+  }, [id]);
 
-  const saveAdvert = async (event) => {
+  // Handle updating the advert
+  const updateAdvert = async (event) => {
     event.preventDefault();
-    const formData = new FormData(event.target); // Get form data
-    setLoading(true); // Optional: Start loading
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("price", price);
+    formData.append("category", category);
+    if (image) formData.append("image", image);
+    setLoading(true);
 
     try {
-        const response = await axios.post(`https://advertisement-api.onrender.com/adverts`, formData);
-        console.log('Advert posted:', response.data);
-        
-        // Show success notification after posting advert
-        toast.success("Advert posted successfully");
-        
-        // Wait for 3 seconds before navigating
-        setTimeout(() => {
-            navigate('/dashboard'); // Navigate to dashboard
-        }, 2000);
-        
+      await axios.patch(`https://advertisement-api.onrender.com/adverts/${id}`, formData);
+      toast.success("Advert updated successfully");
+      navigate("/dashboard");
     } catch (error) {
-        console.error('Error posting advert:', error);
-        toast.error("Failed to post advert."); // Show error notification if there's a problem
+      console.error("Error updating advert:", error);
+      toast.error("Failed to update advert.");
     } finally {
-        setLoading(false); // Stop loading after request completes
+      setLoading(false);
     }
-};
+  };
 
   return (
     <div className='flex flex-col justify-center items-center'>
-      <ToastContainer /> {/* Make sure this is included */}
-      <h1 className="text-center text-2xl font-bold">Post an Ad</h1>
-      <form onSubmit={saveAdvert} className="bg-white flex flex-col gap-6 p-6 rounded-lg shadow-lg w-[620px]">
-        
+      <h1 className="text-center text-2xl font-bold">Edit Ad</h1>
+      <form onSubmit={updateAdvert} className="bg-white flex flex-col gap-6 p-6 rounded-lg shadow-lg w-[620px]">
+
         {/* Title Field */}
         <div className="flex flex-col">
           <label className="text-lg font-semibold mb-2">Title</label>
           <input
             name="title"
             type="text"
-            placeholder="Enter the Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
             required
             className="p-3 border border-blue-500 rounded-lg focus:outline-none focus:ring-2"
           />
@@ -73,7 +93,8 @@ const PostingForm = () => {
           <label className="text-lg font-semibold mb-2">Description</label>
           <textarea
             name="description"
-            placeholder="Enter the Description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             rows="3"
             required
             className="p-3 border border-blue-500 rounded-lg focus:outline-none focus:ring-2"
@@ -86,6 +107,8 @@ const PostingForm = () => {
           <input
             name="price"
             type="number"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
             required
             className="p-3 border border-blue-500 rounded-lg focus:outline-none focus:ring-2"
           />
@@ -94,7 +117,13 @@ const PostingForm = () => {
         {/* Category Dropdown */}
         <div className="flex flex-col">
           <label className="text-lg font-semibold mb-2">Category</label>
-          <select name="category" required className="p-3 border border-blue-500 rounded-lg focus:outline-none focus:ring-2">
+          <select
+            name="category"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            required
+            className="p-3 border border-blue-500 rounded-lg focus:outline-none focus:ring-2"
+          >
             <option value="">Select a Category</option>
             {Array.isArray(categories) && categories.length > 0 ? (
               categories.map((category) => (
@@ -114,7 +143,8 @@ const PostingForm = () => {
           <input
             type="file"
             name="image"
-            required
+            accept="image/*"
+            onChange={(e) => setImage(e.target.files[0])}
             className="p-3 border border-blue-500 rounded-lg focus:outline-none focus:ring-2"
           />
         </div>
@@ -126,15 +156,12 @@ const PostingForm = () => {
             disabled={loading} // Disable button while loading
             className={`mt-4 w-[280px] py-3 ${loading ? "bg-gray-400" : "bg-blue-500 hover:bg-blue-700"} text-white text-lg font-semibold shadow-md transition duration-300 ease-in-out`}
           >
-            {loading ? "Posting..." : "Post Ad"}
+            {loading ? "Updating..." : "Update Ad"}
           </button>
         </div>
       </form>
-    
-    <ToastContainer
-    />
     </div>
   );
 }
 
-export default PostingForm;
+export default EditAdvertForm;

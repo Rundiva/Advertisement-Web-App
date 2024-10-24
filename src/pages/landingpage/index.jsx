@@ -12,6 +12,7 @@ import GridViewIcon from '../../assets/grid.png'
 import FilterViewIcon from '../../assets/filter.png'
 import SearchBar from './searchBar';
 import { Filter } from 'lucide-react';
+import AdFetchMain from './AdFetchMain';
 import DropDownFilter from './DropDownFilter';
 import AllAdverts from './AllAdverts';
 import K from '../../constants';
@@ -78,6 +79,7 @@ const LandingPage = () => {
                         <Link to='/FilterView'> <img src={FilterViewIcon} alt="img" /></Link>
                     </div>
                     <AllAdverts />
+                    
                     <AdFetchMain />
                     {/* Grid View */}
                    
