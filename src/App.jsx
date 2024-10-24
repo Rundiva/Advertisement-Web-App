@@ -56,7 +56,7 @@ const App = () => {
       element: <Adverts />
     },
     {
-      path: "/editadvertform",
+      path: "/editadvertform/:id",
       element: <EditAdvertForm />
     },
 

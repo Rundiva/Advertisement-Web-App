@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { apiGetProducts } from "../services/product";
+import { apiGetProducts, apiGetUserProducts } from "../services/product";
 import AdvertTile from "./AdvertTile"; // Import AdvertTile
 
 const Adverts = () => {
@@ -13,7 +13,7 @@ const Adverts = () => {
   const getAdverts = async () => {
     try {
       // Fetch adverts from API
-      const response = await apiGetProducts();
+      const response = await apiGetUserProducts();
       console.table(response.data);
       setAdverts(response.data);
     } catch (err) {

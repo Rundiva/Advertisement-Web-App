@@ -2,10 +2,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { apiGetSingleProduct } from "../services/product";
+import { toast } from "react-toastify";
 
 
 const EditAdvertForm = () => {
-  const { advertId } = useParams();  // Get the advertId from the URL
+  const { id } = useParams();  // Get the id from the URL
   const [categories, setCategories] = useState([]);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -29,7 +30,7 @@ const EditAdvertForm = () => {
   // Fetch existing advert details
   const fetchAdvert = async () => {
     try {
-      const response = await apiGetSingleProduct()
+      const response = await apiGetSingleProduct(id)
       const { title, description, price, category } = response.data;
       setTitle(title);
       setDescription(description);
@@ -44,7 +45,7 @@ const EditAdvertForm = () => {
   useEffect(() => {
     getCategories();
     fetchAdvert();
-  }, [advertId]);
+  }, [id]);
 
   // Handle updating the advert
   const updateAdvert = async (event) => {
@@ -58,7 +59,7 @@ const EditAdvertForm = () => {
     setLoading(true);
 
     try {
-      await axios.put(`https://advertisement-api.onrender.com/adverts/${advertId}`, formData);
+      await axios.patch(`https://advertisement-api.onrender.com/adverts/${id}`, formData);
       toast.success("Advert updated successfully");
       navigate("/dashboard");
     } catch (error) {
@@ -73,7 +74,7 @@ const EditAdvertForm = () => {
     <div className='flex flex-col justify-center items-center'>
       <h1 className="text-center text-2xl font-bold">Edit Ad</h1>
       <form onSubmit={updateAdvert} className="bg-white flex flex-col gap-6 p-6 rounded-lg shadow-lg w-[620px]">
-        
+
         {/* Title Field */}
         <div className="flex flex-col">
           <label className="text-lg font-semibold mb-2">Title</label>

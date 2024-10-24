@@ -22,7 +22,7 @@ const SingleView = () => {
     // Delete advert function
     const handleDelete = async () => {
         try {
-           const response = await apiDelete() // Use the advert id to delete the advert
+           const response = await apiDelete(id) // Use the advert id to delete the advert
             toast.success("Advert deleted successfully!");
             navigate("/dashboard"); // Redirect to home or advert listing page after deletion
         } catch (error) {
@@ -57,7 +57,7 @@ const SingleView = () => {
                 </div>
 
                 <div className="flex gap-4">
-                   <Link to={'/editadvertform'}>
+                   <Link to={`/editadvertform/${advert.id}`}>
                    <button 
                         className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
                     >
