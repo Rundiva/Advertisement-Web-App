@@ -19,11 +19,11 @@ const Sidebar = () => {
               <FilePlus className="mr-3 h-5 w-5" /> POST AD
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link to='/dashboard/singleview' className="flex items-center">
               <FilePlus className="mr-3 h-5 w-5" /> SingleView
             </Link>
-          </li>
+          </li> */}
         </ul>
       </nav>
       <div className="mt-auto pt-6">
