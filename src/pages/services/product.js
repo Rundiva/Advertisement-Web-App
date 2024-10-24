@@ -9,4 +9,4 @@ export const apiAddProducts = async (payload) =>
     apiClient.post("/adverts", payload);
 
 export const apiGetSingleProduct = async(id)=>
-    apiClient.get(`/advert/${id}`);
+    apiClient.get(`/adverts/${id}`);

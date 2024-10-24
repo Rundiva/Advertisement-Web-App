@@ -4,17 +4,35 @@ import { apiGetSingleProduct } from "../services/product";
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
 import axios from "axios";
+import { useState } from "react";
+import { apiDelete } from "../services/auth";
 
+
+
+// const Adverts = () => {
+//     //1.Declare state to store adverts
+//     const [adverts, setAdverts] = useState([]);
+//     //2. Define a function to get adverts
+//     const getAdverts = async () => {
+//         //Use axios to get adverts
+//         const response = await apiGetProducts();
+//         console.table(response.data);
+//         //Update adverts state
+//         setAdverts(response.data);
 
 const SingleView = () => {
     const { id } = useParams()
-    const navigate = useNavigate();
+    const navigate = useNavigate('/adverts');
+    const[advert, setAdvert] = useState({})
+
+    
 
         // Fetch single product details
     const fetchAdvert = async () => {
         try {
             const res = await apiGetSingleProduct(id)
-            console.log(res)
+
+            setAdvert(res.data)
  // Add logic to set product state (if needed)
         } catch (error) {
             console.log(error.message);
@@ -24,7 +42,7 @@ const SingleView = () => {
   // Delete product function
     const handleDelete = async () => {
         try{
-            await apiDeleteProduct(id);  // Assuming you have an API call for deleting a product
+            await apiDelete('https://advertisement-api.onrender.com/adverts/id');  // Assuming you have an API call for deleting a product
             toast.success("Product deleted successfully!");
             navigate("/"); // Redirect to home or product listing page after deletion
 
@@ -37,6 +55,7 @@ const SingleView = () => {
 
         // Edit button function - navigate to edit page
         const handleEdit = () => {
+            //await apiPatch
             navigate(`/edit-product/${id}`);
         };
     useEffect(() => {
@@ -48,7 +67,7 @@ const SingleView = () => {
             {/* Left side - Image */}
             <div className="md:w-1/2">
                 <img
-                    src="/api/placeholder/400/400"
+                    src={`https://savefiles.org/${advert.image}?shareable_link=450`}
                     alt="Item preview"
                     className="w-full h-full object-cover rounded-t-lg md:rounded-l-lg md:rounded-r-none"
                 />
@@ -57,11 +76,12 @@ const SingleView = () => {
             {/* Right side - Details */}
             <div className="md:w-1/2 p-6 flex flex-col justify-between">
                 <div>
-                    <h4 className="text-2xl font-semibold mb-4">Title</h4>
+                    <h4 className="text-2xl font-semibold mb-4">{advert.title}</h4>
+                    
                     <p className="text-gray-600 mb-6">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                        Ipsam ratione accusantium exercitationem officiis sequi corrupti.
+                       {advert.description}
                     </p>
+                    <p>{advert.price}</p>
                 </div>
 
                 <div className="flex gap-4">
