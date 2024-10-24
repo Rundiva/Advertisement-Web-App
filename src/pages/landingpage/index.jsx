@@ -12,8 +12,8 @@ import GridViewIcon from '../../assets/grid.png'
 import FilterViewIcon from '../../assets/filter.png'
 import SearchBar from './searchBar';
 import AdFetchMain from './AdFetchMain';
-import { Filter } from 'lucide-react';
-import ApiGetProduct from './ApiGetAdvert';
+// import { Filter } from 'lucide-react';
+// import ApiGetProduct from './ApiGetAdvert';
 import DropDownFilter from './DropDownFilter';
 
 
@@ -78,7 +78,7 @@ const LandingPage = () => {
                         <Link to='/GridView'> <img src={GridViewIcon} alt="img" /></Link>
                         <Link to='/FilterView'> <img src={FilterViewIcon} alt="img" /></Link>
                     </div>
-                    <ApiGetAdvert />
+                    
                     <AdFetchMain />
                     {/* Grid View */}
                     <div className='flex'>

@@ -1,72 +1,17 @@
-import { MdOutlineFileUpload } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { toast } from "react-toastify";
-import { useState, useEffect } from "react";
-import { apiGetProducts } from "../services/product";
+import React from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 
+const EditAdvert = () => {
+    const {adId} = useParams();
 
+    const navigate = useNavigate();
 
-const PostingForm = () => {
-  const [adverts, setAdverts] = useState([]);
-  const [categories, setCategories] = useState([]);
+    const fetchAd = async () = {
 
-  const navigate = useNavigate();
-
-  const getAdverts = async () => {
-    const response = await apiGetProducts()
-    console.log("res-->", response.data)
-    setAdverts(response.data)
-
-  }
-
-  useEffect(() => {
-    getAdverts();
-  }, []);
-
-  // Function to fetch categories from the API
-  const getCategories = async () => {
-    try {
-      const response = await axios.get('https://advertisement-api.onrender.com/categories.');
-      setCategories(response.data);
-    } catch (error) {
-      console.error('Error fetching categories:', error);
-      toast.error("Failed to load categories");
     }
-  };
-
-  // Fetch categories when the component mounts
-  useEffect(() => {
-    getCategories();
-  }, []);
-
-  const saveAdvert = async (event) => {
-    event.preventDefault();
-    //Colllect form input
-    // const [adverts, setAdverts] = useState([]);
-    const formData = new FormData(event.target);
-
-    try {
-      //Post data to todo api
-      const response = await axios.post('https://advertisement-api.onrender.com/adverts', formData);
-      console.log('Advert posted:', response.data);
-
-      // Show success notification
-      toast.success("Advert posted successfully");
-
-      //Goto the homepage
-      navigate('/dashboard');
-    } catch (error) {
-      // Log and show error if API call fails
-      console.error('Error posting advert:', error);
-      toast.error("Failed to post advert.")
-    }
-  }
-
   return (
-
     <div className='flex flex-col justify-center items-center'>
-      <h1 className="text-center text-2xl font-bold">Post an Ad</h1>
+      <h1 className="text-center text-2xl font-bold">Edit an Ad</h1>
       <form onSubmit={saveAdvert} className="bg-white flex flex-col gap-6 p-6 rounded-lg shadow-lg w-[620px]">
         <div className="flex flex-col">
           <label className="text-lg font-semibold mb-2">Title </label>
@@ -114,13 +59,7 @@ const PostingForm = () => {
               <option value="Toyota">Toyota</option>
               <option value="Nissan"> Nissan</option> 
 
-         { adverts &&  Array.isArray(adverts) && adverts.length > 0 ? (
-         adverts.map((adverts) => {
-              return <option key={adverts.id} value={adverts.id}>{adverts.categories}</option>
-            })):(
-              <p></p>
-            ) }
-
+         
 
 
          </select>
@@ -156,12 +95,12 @@ const PostingForm = () => {
             type="submit"
             className="mt-4 w-[280px]  py-3 bg-blue-500 hover:bg-blue-700 text-white text-lg font-semibold  shadow-md transition duration-300 ease-in-out "
           >
-            Post Adv
+            Edit
           </button>
         </div>
       </form>
     </div>
-  );
+  )
 }
 
-export default PostingForm
+export default EditAdvert

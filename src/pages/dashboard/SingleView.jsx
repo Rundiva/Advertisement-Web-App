@@ -3,7 +3,7 @@ import { useParams,useNavigate } from "react-router-dom";
 import { apiGetSingleProduct } from "../services/product";
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
-import axios from "axios";
+// import axios from "axios";
 import { useState } from "react";
 import { apiDelete } from "../services/auth";
 
@@ -89,7 +89,8 @@ const SingleView = () => {
                      className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors">
                         Edit
                     </button>
-                    <button onClick={handleDelete}
+                    <button onClick={() => {
+                         handleDelete (ad.id)}}
                     className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors">
                         Delete
                     </button>

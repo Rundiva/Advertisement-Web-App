@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { ToastContainer,toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { apiLogin } from '../services/auth'
+import { apiLogin, apiProfile } from '../services/auth'
 import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
@@ -18,6 +18,10 @@ const Login = () => {
         // console.log(response.data);
         if (response.status===200){
           localStorage.setItem("token",response.data.accessToken)
+
+          // get user profile
+          // const profileResponse = await apiProfile();
+          // console.log(profileResponse.data)
          
         }
 
@@ -29,12 +33,8 @@ const Login = () => {
         } else {
           toast.error("Invalid email or password");
         }
-  //     } catch (error) {
-  //       // Catch network or API errors
-  //       console.error('Login error:', error);
-  //       toast.error("An error occurred during login.");
-  //     }
-  };
+  }
+  
   return (
 
     <div className='flex flex-col justify-center items-center mt-[100px]   '>

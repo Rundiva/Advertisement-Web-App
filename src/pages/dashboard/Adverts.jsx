@@ -10,8 +10,7 @@ const Adverts = () => {
   //2. Define a function to get adverts
   const getAdverts = async () => {
     //Use axios to get adverts
-    const response = await apiGetProducts();
-    console.table(response.data);
+    const response = await axios.get('https://advertisement-api.onrender.com/adverts');
     //Update adverts state
     setAdverts(response.data);
 
@@ -29,9 +28,13 @@ const Adverts = () => {
 
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {adverts.map((advert) => (
-          <AdvertTile id={advert.id} title={advert.title} description={advert.description} image={advert.image} category={advert?.category?.brand} price={advert.price} />
-        ))}
+        { adverts && Array.isArray(adverts) && adverts.length > 0 ? (
+        adverts.map((advert) => (
+          <AdvertTile key={advert.id} title={advert.title} description={advert.description} image={advert.image} category={advert?.category?.brand} price={advert.price} />
+        ))
+      ) : (
+        <p>No adverts found.</p>
+      )}
       </div>
       <Link
         to="/postingform"

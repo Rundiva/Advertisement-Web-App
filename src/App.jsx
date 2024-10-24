@@ -26,6 +26,7 @@ import { Filter } from 'lucide-react'
 
 
 
+
 const App = () => {
 
   const router = createBrowserRouter([
@@ -44,6 +45,12 @@ const App = () => {
       path: "/login",
       element: <Login />,
     },
+
+    // {
+    //   path:"edit-Avert/:id",
+    //   element: <EditAdvert/>
+
+    // },
     {
       path: "/ads/:id",
       element:<AdDetailsMain />
