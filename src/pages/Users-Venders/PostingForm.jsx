@@ -25,27 +25,30 @@ const PostingForm = () => {
     getCategories();
   }, []);
 
-  // Handle posting the advert
   const saveAdvert = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target); // Get form data
     setLoading(true); // Optional: Start loading
 
     try {
-      const response = await axios.post(`https://advertisement-api.onrender.com/adverts`, formData);
-      console.log('Advert posted:', response.data);
-      
-      // Show success notification after posting advert
-      toast.success("Advert posted successfully");
-      
-      navigate('/dashboard'); // Navigate to dashboard after success
+        const response = await axios.post(`https://advertisement-api.onrender.com/adverts`, formData);
+        console.log('Advert posted:', response.data);
+        
+        // Show success notification after posting advert
+        toast.success("Advert posted successfully");
+        
+        // Wait for 3 seconds before navigating
+        setTimeout(() => {
+            navigate('/dashboard'); // Navigate to dashboard
+        }, 2000);
+        
     } catch (error) {
-      console.error('Error posting advert:', error);
-      toast.error("Failed to post advert."); // Show error notification if there's a problem
+        console.error('Error posting advert:', error);
+        toast.error("Failed to post advert."); // Show error notification if there's a problem
     } finally {
-      setLoading(false); // Stop loading after request completes
+        setLoading(false); // Stop loading after request completes
     }
-  };
+};
 
   return (
     <div className='flex flex-col justify-center items-center'>
