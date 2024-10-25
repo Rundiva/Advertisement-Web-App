@@ -45,7 +45,11 @@ const LandingPage = () => {
 
                     <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 z-10 space-x-4 pt-[20rem items-center">
                         {/* hero-caption */}
-                        <div className='text-6xl font-sans font-extrabold items-center text-white'>Welcome to RunAds! Sell your Automobile Faster with Us</div>
+                        <div className='text-4xl font-sans items-center text-white'><p>Welcome to RunDevs...</p>
+                        <h1 className='text-6xl font-sans font-extrabold items-center text-white'>We Run The Ads!</h1>
+                         <p>Sell your Automobile Faster with Us
+                        </p>
+                        </div>
 
                         {/* Buttons */}
                         <a href="#all-adverts"><button id='all-adverts' className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-white hover:text-blue-600  transition mt-5">View Ads</button></a>
