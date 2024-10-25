@@ -77,11 +77,11 @@ const LandingPage = () => {
                     <h1 className='text-4xl flex p-4 ml-16 items-center font-sans font-semibold pt-16 -mt-[8rem]'>Latest Ads</h1>
 
                     {/* Grid and list view icons */}
-                    <div className='flex w-32 ml-[75rem] gap-3'>
+                    {/* <div className='flex w-32 ml-[75rem] gap-3'>
                         <Link to='/ListView'><img src={ListViewIcon} alt="img" /></Link>
                         <Link to='/GridView'> <img src={GridViewIcon} alt="img" /></Link>
                         <Link to='/FilterView'> <img src={FilterViewIcon} alt="img" /></Link>
-                    </div>
+                    </div> */}
                     <AllAdverts />
                     
                  

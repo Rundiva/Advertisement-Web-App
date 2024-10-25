@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom"; // Assuming you use React Router for single advert navigation
+import { Link } from "react-router-dom"; 
 
 const SearchBar = () => {
   // State for managing the search query, fetched data, and category filter
@@ -20,7 +20,7 @@ const SearchBar = () => {
       console.log('respo', response.data)
       setData(response.data);
       setLoading(false);
-      setError(null); // Clear error if successful
+      setError(null); 
     } catch (err) {
       setError("Error fetching data");
       setLoading(false);
@@ -116,7 +116,7 @@ const SearchBar = () => {
               <h3 className="text-lg font-bold mt-2">{ad.title}</h3>
               <p>{ad.description}</p>
               <p className="text-gray-500">{ad.category?.brand}</p>
-              <p className="text-green-600 font-bold">${ad.price}</p>
+              <p className="text-green-600 font-bold">GHC{ad.price}</p>
             </div>
           ))
         ) : (
