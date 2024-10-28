@@ -117,6 +117,7 @@ const SearchBar = () => {
               <p>{ad.description}</p>
               <p className="text-gray-500">{ad.category?.brand}</p>
               <p className="text-green-600 font-bold">GHC{ad.price}</p>
+              <p className="text-green-600 font-bold">GHC{ad.filter}</p>
             </div>
           ))
         ) : (
